@@ -1,0 +1,16 @@
+{
+  "name": "chattingroom",
+  "description": "socket.io and angularjs",
+  "main": "app.js",
+  "authors": [
+    "ChrisFuck"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ChrisFuck/chattingroom",
+  "moduleType": [],
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.8",
+    "bootstrap": "~3.3.6"
+  }
+}
