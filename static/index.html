@@ -4,9 +4,9 @@
 	<title>Chatting Room</title>
 	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 	<script type="text/javascript" src="socket.io/socket.io.js"></script>
-	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
 
 </head>
 <body>
@@ -23,23 +23,23 @@
 			<div class="panel panel-default room" ng-controller="RoomCtrl">
 				<div class="panel-heading room-header">ChattingRoom</div>
 				<div class="panel-body room-content"></div>
-					<div class="list-group messages" auto-scroll-to-bottom>
+					<div class="list-group messages" auto-Scroll-To-Bottom>
 						<div class="list-group-item message" 
 						ng-repeat="message in messages">
-							某某：{{message}}
+							<div>某某：{{message}}</div>
 						</div>
 					</div>
 					<form class="messages-creator" ng-controller="MessageCreatorCtrl">
 						<div class="form-group">
 							<textarea required class="form-control message-input" 
 							ng-model="newMessage"
-							ctrl-enter-break-line="createMessage()"
+							ctrl-Enter-Break-Line="createMessage()"
 							placeholder="Ctrl+Enter to quick send"></textarea>
 						</div>
 					</form>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="technodeApp.js"></script>
+	<script type="text/javascript" src="/technodeApp.js"></script>
 </body>
 </html>
