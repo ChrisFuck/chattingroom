@@ -1,0 +1,20 @@
+<div class="col-md-12">
+	<div class="panel panel-default room" ng-controller="RoomCtrl">
+		<div class="panel-heading room-header">ChattingRoom</div>
+			<div class="panel-body room-content"></div>
+				<div class="list-group messages" auto-Scroll-To-Bottom>
+					<div class="list-group-item message" 
+						ng-repeat="message in messages">
+						<div>某某：{{message}}</div>
+					</div>
+				</div>
+			<form class="messages-creator" ng-controller="MessageCreatorCtrl">
+				<div class="form-group">
+					<textarea required class="form-control message-input" 
+						ng-model="newMessage"
+						ctrl-Enter-Break-Line="createMessage()"
+						placeholder="Ctrl+Enter to quick send"></textarea>
+				</div>
+			</form>
+	</div>
+</div
