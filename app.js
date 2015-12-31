@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path'); 
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parse');
+var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var Controllers = require('./controllers');
 
@@ -16,7 +16,7 @@ app.use(cookieParser())
 app.use(session({
 	secret:'chatting',
 	resave:true,
-	saveUninitialized:false
+	saveUninitialized:false,
 	cookie:{
 		maxAge:60*1000
 	}
@@ -24,7 +24,7 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname,'static')));
 app.use(function(req,res){
-	res.sendFile(path.join(__dirname,'./staic/index.html'));
+	res.sendFile(path.join(__dirname,'./static/index.html'));
 });
 
 var server = app.listen(port,function(){

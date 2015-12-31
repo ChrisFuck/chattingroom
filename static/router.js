@@ -7,6 +7,6 @@ angular.modul('technodeApp').config(function($routeProvider,$locationProvider){
 		templateUrl:'pages/login.html',
 		controller:'LoginCtrl'
 	}).otherwise({
-		redirectTo:'login'
+		redirectTo:'/login'
 	})
 })
