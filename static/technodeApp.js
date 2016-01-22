@@ -3,7 +3,7 @@ angular.module('technodeApp',['ngRoute']).run(function($window,$rootScope,$http,
 		url:'/api/validate',
 		method:'GET',
 	}).success(function(user){
-		$rootscope.me = user
+		$rootScope.me = user
 		$location.path('/')
 	}).error(function(data){
 		$location.path('login')

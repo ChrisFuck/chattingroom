@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var Controllers = require('./controllers');
+var api = require('./services/api');
 
 var port = process.env.PORT || 3000;
 
@@ -27,6 +28,10 @@ app.use(function(req,res){
 	res.sendFile(path.join(__dirname,'./static/index.html'));
 });
 
+app.post('/api/login', api.login);
+app.get('/api/logout', api.logout);
+app.get('/api/validate', api.validate);
+
 var server = app.listen(port,function(){
 	console.log('chattingroom is on port '+ port + '!');
 });
@@ -46,43 +51,3 @@ io.sockets.on('connection',function(socket){
 	});
 });
 
-
-app.get('/api/validate',function(req,res){
-	var _userId = req.session._userId;
-	if (_userId) {
-		Controllers.User.findUserById(_userId,function(err,user){
-			if(err){
-				res.json(401,{
-					msg:err
-				})
-			} else {
-				res.json(user)
-			}
-		})
-	} else {
-		res.json(401,null)
-	}
-})
-
-app.post('/api/login',function(req,res){
-	var email = req.body.email;
-	if(email){
-		Controllers.User.findByEmailOrCreate(email,function(err,user){
-			if(err){
-				res.json(500,{
-					msg:err
-				})
-			} else {
-				req.session._userId = user._id
-				res.json(user)
-			}
-		})
-	} else {
-		res.json(403)
-	}
-})
-
-app.get('/api/logout',function(req,res){
-	req.session._userId = null
-	res.json(401)
-})
